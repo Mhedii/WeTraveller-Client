@@ -12,7 +12,7 @@ const Purchase = () => {
 
     const email = sessionStorage.getItem("email");
     useEffect(() => {
-        fetch(`http://localhost:5000/singleOrder/${serviceId}`)
+        fetch(`https://wetraveller.herokuapp.com/singleOrder/${serviceId}`)
             .then((res) => res.json())
             .then((data) => setService(data));
     }, []);
@@ -29,7 +29,7 @@ const Purchase = () => {
 
         data.status = "pending";
 
-        fetch("http://localhost:5000/confirmBooking", {
+        fetch("https://wetraveller.herokuapp.com/confirmBooking", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
@@ -106,10 +106,6 @@ const Purchase = () => {
 
 
 
-                            <Link to={"/dashboard/payment"}>
-                                {" "}
-                                <button className="btn btn-success">Buy Now</button>
-                            </Link>
 
 
                         </form>

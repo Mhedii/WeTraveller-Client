@@ -17,8 +17,8 @@ const ManageOrder = () => {
 
     console.log(status);
     useEffect(() => {
-        // fetch("http://localhost:5000/allOrders")
-        fetch("http://localhost:5000/allProducts")
+        // fetch("https://wetraveller.herokuapp.com/allOrders")
+        fetch("https://wetraveller.herokuapp.com/allProducts")
             .then((res) => res.json())
             .then((data) => setOrders(data));
     }, []);
@@ -31,7 +31,7 @@ const ManageOrder = () => {
 
     const onSubmit = (data) => {
         console.log(data, orderId);
-        fetch(`http://localhost:5000/statusUpdate/${orderId}`, {
+        fetch(`https://wetraveller.herokuapp.com/statusUpdate/${orderId}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
@@ -40,7 +40,7 @@ const ManageOrder = () => {
             .then((result) => console.log(result));
     };
     const handleUpdate = (id) => {
-        fetch(`http://localhost:5000/updateStatus/${id}`, {
+        fetch(`https://wetraveller.herokuapp.com/updateStatus/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ status }),
@@ -49,7 +49,7 @@ const ManageOrder = () => {
         console.log(id);
     };
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/deleteOrders/${id}`, {
+        fetch(`https://wetraveller.herokuapp.com/deleteOrders/${id}`, {
             method: "DELETE",
         })
             .then((res) => res.json())
